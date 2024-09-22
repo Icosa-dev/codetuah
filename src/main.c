@@ -35,14 +35,14 @@ main (int argc, char **argv)
 {
     if (argc < 2)
     {
-        fputs("codetuah: Error: too few arguments passed", stderr);
+        fprintf(stderr, "codetuah: Error: too few arguments passed\n");
         return 1;
     }
 
     FILE *bf_file = fopen(argv[1], "r");
     if (bf_file == NULL)
     {
-        fputs("codetuah: Error opening file", stderr);
+        fprintf(stderr, "codetuah: Error opening file\n");
         return 1;
     }
 

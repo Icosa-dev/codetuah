@@ -6,7 +6,7 @@ char *
 get_loop_label (int loop_count)
 {
     static char buffer[256];
-    snprintf(buffer, 256, ".L%d", loop_count);
+    snprintf(buffer, 256, ".L%d:\n", loop_count);
     return buffer;
 }
 

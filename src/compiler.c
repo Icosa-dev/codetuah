@@ -8,6 +8,7 @@
 static void
 generate_assembly (const char *code, size_t cs)
 {
+    /* TODO: use fprintf over fputs */
     FILE *outputf = fopen("a.asm", "a");
     fputs(ASM_HEADER, outputf);
 
