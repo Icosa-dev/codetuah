@@ -28,4 +28,4 @@ with open(bf_file, "r") as file:
                 tuah_string += "] "
 
 with open("a.tuah", "w") as file:
-    file.write(tuah_string)
+    file.write(tuah_string + "\n")
