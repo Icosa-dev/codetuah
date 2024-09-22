@@ -1,19 +1,24 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -I. -O2
+CFLAGS = -Wall -Wextra -O2
+
+SRC_DIR = src
+BUILD_DIR = build
 TARGET = codetuah
 
-SRCS = main.c asm.c
-OBJS = main.o asm.o
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+OBJS = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
 .PHONY: all clean
 
 all: $(TARGET)
 
-clean: $(TARGET)
-	rm -rf $(TARGET) *.o
+clean:
+	rm -rf $(TARGET) $(BUILD_DIR)
 
 $(TARGET): $(OBJS)
-	$(CC) -o $(TARGET) $(OBJS)
+	@mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
-$(OBJS):
-	$(CC) -c -o $(OBJS) $(SRCS)
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) -I$(SRC_DIR) -c -o $@ $<
