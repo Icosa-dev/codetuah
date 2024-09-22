@@ -4,6 +4,17 @@ CodeTuah is a compiled esolang based on brainfuck. Finally you can give your com
 
 The repository even includes a python script (`./tools/translator.py`) to help translate boring brainfuck code into sleek modern tuahcode.
 
+## Brainfuck to CodeTuah
+| brainfuck | codetuah |
+|-----------|----------|
+| +         | hawk     |
+| -         | tuah     |
+| >         | spit     |
+| <         | on       |
+| ,         | that     |
+| .         | thang    |
+| []        | []       |
+
 ## Requirements
 
 - Linux
