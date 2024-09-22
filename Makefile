@@ -1,9 +1,9 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -O2
+CFLAGS = -Wall -Wextra -I. -O2
 TARGET = codetuah
 
-SRCS = main.c
-OBJS = main.o
+SRCS = main.c asm.c
+OBJS = main.o asm.o
 
 .PHONY: all clean
 
