@@ -2,8 +2,9 @@
 #include <stdlib.h>
 
 #include "compiler.h"
+#include "parser.h"
 
-size_t
+static size_t
 get_file_size(FILE *fp)
 {
     long current_pos = ftell(fp);
@@ -16,7 +17,7 @@ get_file_size(FILE *fp)
 }
 
 /* Remember to free. */
-char *
+static char *
 read_file_to_string(FILE *fp)
 {
     size_t file_size = get_file_size(fp);
@@ -39,19 +40,22 @@ main (int argc, char **argv)
         return 1;
     }
 
-    FILE *bf_file = fopen(argv[1], "r");
-    if (bf_file == NULL)
+    FILE *tuah_file = fopen(argv[1], "r");
+    if (tuah_file == NULL)
     {
-        fprintf(stderr, "codetuah: Error opening file\n");
+        fprintf(stderr, "codetuah: Error opening .tuah file\n");
         return 1;
     }
 
-    char   *bf_source = read_file_to_string(bf_file);
-    size_t  bf_size   = get_file_size(bf_file);
+    char   *tuah_string = read_file_to_string(tuah_file);
 
-    generate_executable(bf_source, bf_size);
+    size_t bf_size = 0;
+    char  *bf_code = parse_codetuah(tuah_string, &bf_size);
 
-    fclose(bf_file);
-    free(bf_source);
+    generate_executable(bf_code, bf_size);
+
+    fclose(tuah_file);
+    free(tuah_string);
+    free(bf_code);
     return 0;
 }
