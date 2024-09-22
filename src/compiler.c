@@ -9,7 +9,7 @@ static void
 generate_assembly (const char *code, size_t cs)
 {
     /* TODO: use fprintf over fputs */
-    FILE *outputf = fopen("a.asm", "a");
+    FILE *outputf = fopen("/tmp/a.asm", "a");
     fputs(ASM_HEADER, outputf);
 
     int loop_count = 0;
@@ -58,9 +58,9 @@ void
 generate_executable (const char *code, size_t cs)
 {
     generate_assembly(code, cs);
-    system("nasm -felf64 -o a.o a.asm");
-    system("ld -o a.out a.o");
+    system("nasm -felf64 -o /tmp/a.o /tmp/a.asm");
+    system("ld -o a.out /tmp/a.o");
 
     /* clean build files */
-    system("rm -f a.o a.asm");
+    system("rm -f /tmp/a.o /tmp/a.asm");
 }
