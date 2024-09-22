@@ -11,21 +11,21 @@ with open(bf_file, "r") as file:
     for line in content:
         for char in line:
             if char == "+":
-                tuah_string + "hawk "
+                tuah_string += "hawk "
             elif char == "-":
-                tuah_string + "tuah "
+                tuah_string += "tuah "
             elif char == ">":
-                tuah_string + "spit "
+                tuah_string += "spit "
             elif char == "<":
-                tuah_string + "on "
+                tuah_string += "on "
             elif char == ",":
-                tuah_string + "that "
+                tuah_string += "that "
             elif char == ".":
-                tuah_string + "thang "
+                tuah_string += "thang "
             elif char == "[":
-                tuah_string + "[ "
+                tuah_string += "[ "
             elif char == "]":
-                tuah_string + "] "
+                tuah_string += "] "
 
 with open("a.tuah", "w") as file:
     file.write(tuah_string)
