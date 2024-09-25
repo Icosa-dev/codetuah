@@ -23,7 +23,8 @@ read_file_to_string(FILE *fp)
     size_t file_size = get_file_size(fp);
 
     char *buffer = (char *)malloc((file_size + 1) * sizeof(char));
-    if (buffer == NULL) return NULL;
+    if (buffer == NULL)
+        return NULL;
 
     size_t bytes_read = fread(buffer, sizeof(char), file_size, fp);
     buffer[bytes_read] = '\0';  /* Null terminate the buffer */
@@ -35,17 +36,17 @@ int
 main (int argc, char **argv)
 {
     if (argc < 2)
-    {
+     {
         fprintf(stderr, "codetuah: Error: too few arguments passed\n");
         return 1;
-    }
+     }
 
     FILE *tuah_file = fopen(argv[1], "r");
     if (tuah_file == NULL)
-    {
+     {
         fprintf(stderr, "codetuah: Error opening .tuah file\n");
         return 1;
-    }
+     }
 
     char   *tuah_string = read_file_to_string(tuah_file);
 

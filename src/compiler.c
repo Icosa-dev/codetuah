@@ -15,39 +15,39 @@ generate_assembly (const char *code, size_t cs)
     int loop_count = 0;
 
     for (int i = 0; i < (int)cs; i++)
-    {
+     {
         char current_char = code[i];
 
         switch (current_char)
-        {
-        case '>':
-            fputs(ASM_INC_PTR, outputf);
-            break;
-        case '<':
-            fputs(ASM_DEC_PTR, outputf);
-            break;
-        case '+':
-            fputs(ASM_INC_VAL, outputf);
-            break;
-        case '-':
-            fputs(ASM_DEC_VAL, outputf);
-            break;
-        case '.':
-            fputs(ASM_PUTC, outputf);
-            break;
-        case ',':
-            fputs(ASM_GETC, outputf);
-            break;
-        case '[':
-            fputs(get_loop_label(loop_count), outputf);
-            loop_count++;
-            break;
-        case ']':
-            loop_count--;
-            fputs(get_loop_check(loop_count), outputf);
-            break;
-        }
-    }
+         {
+            case '>':
+                fputs(ASM_INC_PTR, outputf);
+                break;
+            case '<':
+                fputs(ASM_DEC_PTR, outputf);
+                break;
+            case '+':
+                fputs(ASM_INC_VAL, outputf);
+                break;
+            case '-':
+                fputs(ASM_DEC_VAL, outputf);
+                break;
+            case '.':
+                fputs(ASM_PUTC, outputf);
+                break;
+            case ',':
+                fputs(ASM_GETC, outputf);
+                break;
+            case '[':
+                fputs(get_loop_label(loop_count), outputf);
+                loop_count++;
+                break;
+            case ']':
+                loop_count--;
+                fputs(get_loop_check(loop_count), outputf);
+                break;
+         }
+     }
 
     fputs(ASM_FOOTER, outputf);
     fclose(outputf);
