@@ -15,12 +15,12 @@ split_by_whitespace (const char *str, int *count)
 
     token = strtok(str_copy, " \t\n\r"); /* Split by whitespace characters */
     while (token != NULL)
-     {
+    {
         result = realloc(result, (*count + 1) * sizeof(char *));
         result[*count] = strdup(token);
         (*count)++;
         token = strtok(NULL, " \t\n\r");
-     }
+    }
 
     free(str_copy);
     return result;
@@ -35,7 +35,7 @@ parse_codetuah(const char *str, size_t *s)
     char *result = (char *)malloc(token_count * sizeof(char));
 
     for (int i = 0; i < token_count; i++)
-     {
+    {
         char *current_token = tokens[i];
 
         if      (strcmp(current_token, "hawk")  == 0) result[i] = '+';
@@ -46,7 +46,7 @@ parse_codetuah(const char *str, size_t *s)
         else if (strcmp(current_token, "thang") == 0) result[i] = '.';
         else if (strcmp(current_token, "[")     == 0) result[i] = '[';
         else if (strcmp(current_token, "]")     == 0) result[i] = ']';
-     }
+    }
 
     for (int i = 0; i < token_count; i++)
         free(tokens[i]);

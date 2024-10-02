@@ -36,17 +36,17 @@ int
 main (int argc, char **argv)
 {
     if (argc < 2)
-     {
+    {
         fprintf(stderr, "codetuah: Error: too few arguments passed\n");
         return 1;
-     }
+    }
 
     FILE *tuah_file = fopen(argv[1], "r");
     if (tuah_file == NULL)
-     {
+    {
         fprintf(stderr, "codetuah: Error opening .tuah file\n");
         return 1;
-     }
+    }
 
     char   *tuah_string = read_file_to_string(tuah_file);
 

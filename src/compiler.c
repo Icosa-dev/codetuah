@@ -15,11 +15,11 @@ generate_assembly (const char *code, size_t cs)
     int loop_count = 0;
 
     for (int i = 0; i < (int)cs; i++)
-     {
+    {
         char current_char = code[i];
 
         switch (current_char)
-         {
+        {
             case '>':
                 fputs(ASM_INC_PTR, outputf);
                 break;
@@ -46,8 +46,8 @@ generate_assembly (const char *code, size_t cs)
                 loop_count--;
                 fputs(get_loop_check(loop_count), outputf);
                 break;
-         }
-     }
+        }
+    }
 
     fputs(ASM_FOOTER, outputf);
     fclose(outputf);
