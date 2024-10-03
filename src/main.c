@@ -33,7 +33,7 @@ read_file_to_string(FILE *fp)
 }
 
 int
-main (int argc, char **argv)
+main(int argc, char **argv)
 {
     if (argc < 2)
     {

@@ -6,7 +6,7 @@
 /* NOTE: count is an output for the function and will be mutated
  * The output also is heap allocated which means it should be freed */
 static char **
-split_by_whitespace (const char *str, int *count)
+split_by_whitespace(const char *str, int *count)
 {
     char *str_copy = strdup(str);
     char *token;

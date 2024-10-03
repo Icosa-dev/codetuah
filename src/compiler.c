@@ -6,7 +6,7 @@
 
 /* generates a.asm from input brainfuck string */
 static void
-generate_assembly (const char *code, size_t cs)
+generate_assembly(const char *code, size_t cs)
 {
     /* TODO: use fprintf over fputs */
     FILE *outputf = fopen("/tmp/a.asm", "a");
@@ -55,7 +55,7 @@ generate_assembly (const char *code, size_t cs)
 
 /* generate a.out binary */
 void
-generate_executable (const char *code, size_t cs)
+generate_executable(const char *code, size_t cs)
 {
     generate_assembly(code, cs);
     system("nasm -felf64 -o /tmp/a.o /tmp/a.asm");
