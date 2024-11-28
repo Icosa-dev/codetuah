@@ -28,7 +28,7 @@ The repository even includes a python script (`./tools/translator.py`) to help t
 To install codetuah you must build the binary from source.
 
 ``` sh
-git clone git@gitlab.com:Icosaa/codetuah.git
+git clone https://codeberg.org/Icosa-dev/codetuah.git
 cd codetuah
 
 make                 # generate binary
